@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "添加用户";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script >
+    $(function () {
+        $("#User-create").submit(function () {
+            $("#User-create button[type='submit']").text("正在添加......").attr("disabled", "disabled");
+            ShowMessage("正在添加，请稍等......");
+            var data = $(this).serialize();
+            $.request("/User/Create", data, function (json) {
+                if (json.result == 0) {
+                    ShowErrorMessage(json.content);
+                    $("#User-create button[type='submit']").text("添加").removeAttr("disabled");
+                } else {
+                    ShowSuccessMessage("成功添加,正在刷新......");
+                    location.href = "/User/Index";
+                }
+            })
+            return false;
+        });
+    });
+</script>
+
+<h3 class="text-center">添加用户</h3>
+@Html.Partial("Message")
+<form class="form-horizontal" method="post" id="User-create">
+    <div class="form-group">
+        <label class="control-label col-md-3">用户名：</label>
+        <div class="col-md-8">
+            <input type="text" name="Name" class="form-control" placeholder="用户名" required />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-8 col-md-offset-3">
+            <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-plus-sign"></i>添加用户</button>
+        </div>
+    </div>
+</form>

@@ -11,6 +11,12 @@ namespace YuHaiFeng.Evections.Controllers
     [UserAuthorize(false)]
     public class UserController : ControllerBase
     {
+        public ActionResult Index()
+        {
+            var list = Core.UserManager.Get();
+            ViewBag.List = list;
+            return View();
+        }
 
         public ActionResult Login()
         {
@@ -37,6 +43,30 @@ namespace YuHaiFeng.Evections.Controllers
         {
             HttpContext.ClearAuth();
             return RedirectToAction("Login");
+        }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(string name)
+        {
+            if (string.IsNullOrEmpty(name))
+            {
+                return ErrorJsonResult("用户名称不能为空！");
+            }
+            if (Core.UserManager.Exist(name))
+            {
+                return ErrorJsonResult("系统中已存在用户名称为：" + name);
+            }
+            var id = Core.UserManager.Add(name);
+            if (id > 0)
+            {
+                return SuccessJsonResult();
+            }
+            return ErrorJsonResult("添加用户失败！");
         }
 
     }
