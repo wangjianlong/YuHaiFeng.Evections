@@ -1,0 +1,132 @@
+﻿@{ 
+    YuHaiFeng.Evections.Models.UserIdentity Identity = ViewBag.Identity;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/bootstrap.min.css" type="text/css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.custom.css" type="text/css" rel="stylesheet" />
+    <link href="~/Content/jquery.datetimepicker.css" type="text/css" rel="stylesheet" />
+    <link href="~/Content/jqtree.css" type="text/css" rel="stylesheet" />
+    <link href="~/Content/jquery.autocomplete.css" type="text/css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" type="text/css" rel="stylesheet" />
+    <link href="~/Content/Site.css" type="text/css" rel="stylesheet" />
+    <link href="~/Content/sb-admin-2.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/css/font-awesome.min.css" />
+
+    <script src="~/Scripts/jquery-1.9.1.min.js"></script>
+    <script src="~/Scripts/sb-admin-2.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/jquery.datetimepicker.js"></script>
+    <script src="~/Scripts/common.js"></script>
+    <script src="~/Scripts/tree.jquery.js"></script>
+    <script src="~/Scripts/jquery.autocomplete.js"></script>
+    <script src="~/Scripts/metisMenu.min.js"></script>
+    <script src="~/Scripts/Contract.js"></script>
+    <script src="~/Scripts/TodoMessage.js"></script>
+
+    <style type="text/css">
+        body {
+            padding: 0px;
+        }
+
+        .sidebar a {
+            color: white;
+        }
+
+            .sidebar a.active {
+                color: #2380BF;
+            }
+
+            .sidebar a:hover,
+            .sidebar a:focus {
+                color: #2380BF;
+            }
+
+        .input-sm {
+            height: 30px;
+        }
+
+        .input-xs {
+            height: 22px;
+        }
+        .logo{
+            background-image:url("/Content/logo.png");
+            background-repeat:no-repeat;
+            font-size:0px;
+            width:60px;
+            background-position:center;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <div id="wrapper">
+            <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom:0px;">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="/" class="navbar-brand logo">智拓TODO</a>
+                    <a href="/" class="navbar-brand">出差系统</a>
+                </div>
+                <ul class="navbar-right nav navbar-nav">
+                    @if (!string.IsNullOrEmpty(Identity.Name))
+                    {
+                        if (Request.Headers.AllKeys.Contains("token"))
+                        {
+                            <li>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> @(Identity.Name)</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> @(Identity.Name) <span class="caret"></span> </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/User/LoginOut">退出</a></li>
+                                </ul>
+                            </li>
+                        }
+                    }
+                </ul>
+
+                @if (Identity.IsAuthenticated)
+                {
+                    <div class="navbar-default sidebar" role="navigation">
+                        <div class="sidebar-nav navbar-collapse">
+                            <ul class="nav" id="side-menu">
+                                <li><a href="/Home/Index"><i class="fa fa-desktop"></i> 欢迎页</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                }
+            </nav>
+            <div id="body">
+                <div id="page-wrapper" style="padding-left:10px;padding-right:10px;">
+                    <div class="container-fluid">
+                        <div class="row">
+                            @RenderBody()
+                        </div>
+
+                        <div style="height:20px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+<script>
+    $(function () {
+        var topHeight = $("#header").height();
+        $("#body").height(document.documentElement.clientHeight - topHeight - 21);
+    });
+</script>
