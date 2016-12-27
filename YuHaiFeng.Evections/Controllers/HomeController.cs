@@ -21,6 +21,12 @@ namespace YuHaiFeng.Evections.Controllers
             return View();
         }
 
+        public ActionResult EUView()
+        {
+            var dict = Core.Evection_UserManager.Get().GroupBy(e => e.Time).ToDictionary(e => e.Key, e => e.ToList());
+            ViewBag.Dict = dict;
+            return View();
+        }
         
 
 

@@ -1,0 +1,95 @@
+﻿@{ 
+    Layout = null;
+}
+
+<script >
+    $(function () {
+        $("input.datetimepicker").datetimepicker({
+            timepicker: false,
+            format: 'Y-m-d'
+        });
+
+        $("button[name='Load-User']").click(function () {
+            var startTime = $("input[name='StartTime']").val();
+            var endTime = $("input[name='EndTime']").val();
+            if (startTime == undefined
+                || endTime == undefined
+                || startTime == ""
+                || endTime == "") {
+                ShowErrorMessage("请选择起始时间以及截至时间");
+                return false;
+            }
+            ShowMessage("正在加载人员，请稍等......");
+            $(this).text("正在加载人员......").attr("disabled", "disabled");
+
+            $("#User").load("/User/UserList?startTime=" + startTime + "&&endTime=" + endTime, function () {
+                $("button[name='Load-User']").text("加载人员").removeAttr("disabled");
+                ShowSuccessMessage("成功加载人员");
+            });
+        });
+
+        $("#form-Evection").submit(function () {
+            ShowMessage("正在录入，请稍等......");
+            $("#form-Evection button[type='submit']").text("正在录入......").attr("disabled", "disabled");
+            var data = $(this).serialize();
+            $.request("/Business/Create", data, function (json) {
+                if (json.result == 0) {
+                    ShowErrorMessage(json.content);
+                    $("#form-Evection button[type='submit']").text("录入").removeAttr("disabled");
+                } else {
+                    ShowSuccessMessage("成功录入，正在刷新......");
+                    location.href = "/Home/Index";
+                }
+            });
+            return false;
+        });
+    });
+</script>
+
+<div class="row">
+    <div class="col-md-12">
+        <h3 class="text-center">录入出差信息</h3>
+        <div class="col-md-12">
+            @Html.Partial("Message")
+        </div>
+        <form class="form-horizontal" method="post" id="form-Evection">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label class="control-label col-md-3">起始时间：</label>
+                    <div class="col-md-8">
+                        <input type="text" name="StartTime" class="form-control datetimepicker" required  placeholder="起始时间"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3">截至时间：</label>
+                    <div class="col-md-8">
+                        <input type="text" name="EndTime" class="form-control datetimepicker" required placeholder="截至时间"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3">备注：</label>
+                    <div class="col-md-8">
+                        <textarea name="Content" class="form-control" rows="3" placeholder="备注"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3">人员选择：</label>
+                    <div class="col-md-8">
+                        <button type="button" class="btn btn-primary btn-block btn-lg" name="Load-User">加载人员</button>
+                       
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12" id="User">
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-8 col-md-offset-3">
+                        <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-ok-sign"></i>录入</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

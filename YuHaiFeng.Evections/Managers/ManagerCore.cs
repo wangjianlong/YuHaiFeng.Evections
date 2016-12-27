@@ -26,5 +26,8 @@ namespace YuHaiFeng.Evections.Managers
         }
 
         public UserManager UserManager { get; private set; }
+        public EvectionManager EvectionManager { get; private set; }
+        public ERelationManager ERelationManager { get; private set; }
+        public Evection_UserManager Evection_UserManager { get; private set; }
     }
 }

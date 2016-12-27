@@ -69,5 +69,17 @@ namespace YuHaiFeng.Evections.Controllers
             return ErrorJsonResult("添加用户失败！");
         }
 
+        public ActionResult UserList(DateTime startTime,DateTime endTime)
+        {
+            if (startTime > endTime)
+            {
+                return Content("时间参数错误");
+            }
+            var execpt = Core.Evection_UserManager.Get(startTime, endTime).Select(e=>e.Name).ToList();
+            var users = Core.UserManager.Get().RemoveExecpt(execpt);
+            ViewBag.Users = users;
+            return View();
+        }
+
     }
 }

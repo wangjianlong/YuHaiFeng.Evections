@@ -145,17 +145,25 @@
     <Compile Include="Common\BaseView.cs" />
     <Compile Include="Common\EncryptExtensions.cs" />
     <Compile Include="Common\JsonExtension.cs" />
+    <Compile Include="Common\ListHelper.cs" />
     <Compile Include="Common\UserAuthorizeAttribute.cs" />
+    <Compile Include="Controllers\BusinessController.cs" />
     <Compile Include="Controllers\ControllerBase.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Managers\ERelationManager.cs" />
+    <Compile Include="Managers\EvectionManager.cs" />
+    <Compile Include="Managers\Evection_UserManager.cs" />
     <Compile Include="Managers\ManagerBase.cs" />
     <Compile Include="Managers\ManagerCore.cs" />
     <Compile Include="Managers\UserManager.cs" />
     <Compile Include="Models\DataContext.cs" />
+    <Compile Include="Models\ERelation.cs" />
+    <Compile Include="Models\Evection.cs" />
+    <Compile Include="Models\Evection_User_View.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserIdentity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -182,6 +190,8 @@
     <Content Include="Content\sb-admin.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\token-input.css" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\font\fontawesome-webfont.eot" />
     <Content Include="Content\font\fontawesome-webfont.ttf" />
@@ -191,6 +201,16 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="Properties\PublishProfiles\Evections.pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\2\Chart.js" />
     <Content Include="Scripts\2\TodoChart.js" />
@@ -230,6 +250,9 @@
     <Content Include="Views\User\Create.cshtml" />
     <Content Include="Views\Shared\Message.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\Business\Create.cshtml" />
+    <Content Include="Views\User\UserList.cshtml" />
+    <Content Include="Views\Home\EUView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

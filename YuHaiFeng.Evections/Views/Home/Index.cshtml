@@ -3,4 +3,30 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<script >
+    $(function () {
+        $("#Modal").on("hidden.bs.modal", function () {
+            $(this).removeData("bs.modal");
+        });
+
+    
+    });
+</script>
+
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true" id="Modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+        </div>
+    </div>
+</div>
+
+
+<h3 class="text-center">出差系统</h3>
+<div class="btn-group">
+    <a data-toggle="modal" data-target="#Modal" href="/Business/Create" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i>录入出差信息</a>
+</div>
+
+@{ 
+    Html.RenderAction("EUView");
+}

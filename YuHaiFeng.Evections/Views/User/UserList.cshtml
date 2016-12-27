@@ -1,0 +1,23 @@
+﻿@using YuHaiFeng.Evections.Common;
+@{ 
+    Layout = null;
+    List<YuHaiFeng.Evections.Models.User> list = ViewBag.Users;
+    var users = list.ListToTable(4);
+}
+
+<table class="table table-striped table-condensed">
+    @foreach(var array in users)
+    {
+        <tr>
+            @foreach (var user in array)
+            {
+                if (user != null)
+                {
+                    <td><label class="checkbox-inline"><input type="checkbox" name="UID" value="@(user.ID)" />@(user.Name)</label></td>
+                }
+
+            }
+        </tr>
+    }
+</table>
+
