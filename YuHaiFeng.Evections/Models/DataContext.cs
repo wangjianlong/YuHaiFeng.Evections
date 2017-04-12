@@ -17,5 +17,6 @@ namespace YuHaiFeng.Evections.Models
         public DbSet<Evection> Evections { get; set; }
         public DbSet<ERelation> ERelations { get; set; }
         public DbSet<Evection_User_View> Evection_User_Views { get; set; }
+        public DbSet<QQ> QQs { get; set; }
     }
 }

@@ -51,6 +51,10 @@
       <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
@@ -58,6 +62,22 @@
     </Reference>
     <Reference Include="MySql.Data.Entity.EF6, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.Entity.6.9.9\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.OOXML.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.OpenXml4Net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.OpenXmlFormats.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -144,12 +164,16 @@
     <Compile Include="Common\AuthUtils.cs" />
     <Compile Include="Common\BaseView.cs" />
     <Compile Include="Common\EncryptExtensions.cs" />
+    <Compile Include="Common\ExcelManager.cs" />
+    <Compile Include="Common\FileManager.cs" />
     <Compile Include="Common\JsonExtension.cs" />
     <Compile Include="Common\ListHelper.cs" />
+    <Compile Include="Common\QueryableExtensions.cs" />
     <Compile Include="Common\UserAuthorizeAttribute.cs" />
     <Compile Include="Controllers\BusinessController.cs" />
     <Compile Include="Controllers\ControllerBase.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\QQController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -159,13 +183,18 @@
     <Compile Include="Managers\Evection_UserManager.cs" />
     <Compile Include="Managers\ManagerBase.cs" />
     <Compile Include="Managers\ManagerCore.cs" />
+    <Compile Include="Managers\QQManager.cs" />
     <Compile Include="Managers\UserManager.cs" />
     <Compile Include="Models\DataContext.cs" />
     <Compile Include="Models\ERelation.cs" />
     <Compile Include="Models\Evection.cs" />
     <Compile Include="Models\Evection_User_View.cs" />
+    <Compile Include="Models\QQ.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserIdentity.cs" />
+    <Compile Include="Parameters\PageParameter.cs" />
+    <Compile Include="Parameters\ParameterBase.cs" />
+    <Compile Include="Parameters\QQParameter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -210,6 +239,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Excels\qq.xls" />
     <None Include="Properties\PublishProfiles\Evections.pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\2\Chart.js" />
@@ -233,7 +263,9 @@
     <Content Include="Scripts\TodoMessage.js" />
     <Content Include="Scripts\tree.jquery.js" />
     <None Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -253,6 +285,9 @@
     <Content Include="Views\Business\Create.cshtml" />
     <Content Include="Views\User\UserList.cshtml" />
     <Content Include="Views\Home\EUView.cshtml" />
+    <Content Include="Views\QQ\Index.cshtml" />
+    <Content Include="Views\QQ\File.cshtml" />
+    <Content Include="Views\Shared\_pagination.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

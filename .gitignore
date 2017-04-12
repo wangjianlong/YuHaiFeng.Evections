@@ -46,6 +46,11 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+
 /packages/
+
 /YuHaiFeng.Evections/bin
+
 /YuHaiFeng.Evections/obj
+/YuHaiFeng.Evections/Temps
+/YuHaiFeng.Evections/UploadFiles
