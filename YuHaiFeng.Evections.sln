@@ -1,7 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YuHaiFeng.Evections", "YuHaiFeng.Evections\YuHaiFeng.Evections.csproj", "{234E5656-4C4C-4DED-A7C7-9A4E967A9FA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YuHaifeng.Client", "YuHaifeng.Winform\YuHaifeng.Client.csproj", "{B80DFB69-2BD7-4C31-8A7A-0BDB24BDE5B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YuHaiFeng.Tools", "YuHaiFeng.Tools\YuHaiFeng.Tools.csproj", "{AC767C0D-212C-4BF0-8DDB-014B35F3D555}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YuHaiFeng.Models", "YuHaiFeng.Models\YuHaiFeng.Models.csproj", "{91DFDEBA-CC09-4DA3-9EF3-D2A58FFFD33F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YuHaiFeng.Forms", "YuHaiFeng.Forms\YuHaiFeng.Forms.csproj", "{9DF80B60-BB55-4BCB-B1BA-009348529AB5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YuHaiFeng.Commons", "YuHaiFeng.Commons\YuHaiFeng.Commons.csproj", "{D0C22F54-13F3-40C2-838A-AE3E7ADDDEAA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +25,26 @@ Global
 		{234E5656-4C4C-4DED-A7C7-9A4E967A9FA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{234E5656-4C4C-4DED-A7C7-9A4E967A9FA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{234E5656-4C4C-4DED-A7C7-9A4E967A9FA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B80DFB69-2BD7-4C31-8A7A-0BDB24BDE5B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B80DFB69-2BD7-4C31-8A7A-0BDB24BDE5B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B80DFB69-2BD7-4C31-8A7A-0BDB24BDE5B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B80DFB69-2BD7-4C31-8A7A-0BDB24BDE5B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC767C0D-212C-4BF0-8DDB-014B35F3D555}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC767C0D-212C-4BF0-8DDB-014B35F3D555}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC767C0D-212C-4BF0-8DDB-014B35F3D555}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC767C0D-212C-4BF0-8DDB-014B35F3D555}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91DFDEBA-CC09-4DA3-9EF3-D2A58FFFD33F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91DFDEBA-CC09-4DA3-9EF3-D2A58FFFD33F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91DFDEBA-CC09-4DA3-9EF3-D2A58FFFD33F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91DFDEBA-CC09-4DA3-9EF3-D2A58FFFD33F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DF80B60-BB55-4BCB-B1BA-009348529AB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DF80B60-BB55-4BCB-B1BA-009348529AB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DF80B60-BB55-4BCB-B1BA-009348529AB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DF80B60-BB55-4BCB-B1BA-009348529AB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0C22F54-13F3-40C2-838A-AE3E7ADDDEAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0C22F54-13F3-40C2-838A-AE3E7ADDDEAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0C22F54-13F3-40C2-838A-AE3E7ADDDEAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0C22F54-13F3-40C2-838A-AE3E7ADDDEAA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
